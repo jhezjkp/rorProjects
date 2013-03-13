@@ -15,18 +15,6 @@ class Admin::BoardsController < ApplicationController
     end
   end
 
-  # GET /boards/1
-  # GET /boards/1.json
-  def show
-    @board = Board.find(params[:id])
-    @posts = @board.posts
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @board }
-    end
-  end
-
   # GET /boards/new
   # GET /boards/new.json
   def new
@@ -50,7 +38,7 @@ class Admin::BoardsController < ApplicationController
 
     respond_to do |format|
       if @board.save
-        format.html { redirect_to admin_board_path(@board), notice: 'Board was successfully created.' }
+        format.html { redirect_to board_path(@board), notice: 'Board was successfully created.' }
         format.json { render json: @board, status: :created, location: @board }
       else
         format.html { render action: "new" }
@@ -66,7 +54,7 @@ class Admin::BoardsController < ApplicationController
 
     respond_to do |format|
       if @board.update_attributes(params[:board])
-        format.html { redirect_to admin_board_path(@board), notice: 'Board was successfully updated.' }
+        format.html { redirect_to board_path(@board), notice: 'Board was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
