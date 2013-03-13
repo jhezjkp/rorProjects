@@ -10,6 +10,7 @@
   <%= @post.content %>
 </p>
 
+<%= @post.excerpt_image %>
 <% if @post.excerpt_image %>
   <p>
     <%= image_tag(@post.excerpt_image.url(:medium)) %>

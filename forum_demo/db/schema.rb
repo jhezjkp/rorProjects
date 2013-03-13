@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130313131425) do
+ActiveRecord::Schema.define(:version => 20130313134940) do
 
   create_table "boards", :force => true do |t|
     t.string   "name"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20130313131425) do
 
   create_table "posts", :force => true do |t|
     t.string   "title"
-    t.string   "content"
+    t.text     "content"
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.integer  "board_id"
