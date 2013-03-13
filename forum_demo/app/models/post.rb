@@ -4,5 +4,5 @@ class Post < ActiveRecord::Base
   has_attached_file :excerpt_image, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   #default_scope :order => 'created_at DESC'
   scope :recent, :order => 'updated_at DESC'
-  attr_accessible :content, :title
+  attr_accessible :content, :title, :excerpt_image
 end
