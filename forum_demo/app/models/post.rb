@@ -1,4 +1,4 @@
 class Post < ActiveRecord::Base
-  has_one :board
+  belongs_to :board
   attr_accessible :content, :title
 end
