@@ -33,13 +33,14 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    @post = @board.posts.find(params[:id])
+    @post = current_user.posts.find(params[:id])
   end
 
   # POST /posts
   # POST /posts.json
   def create
     @post = @board.posts.build(params[:post])
+    @post.user_id = current_user.id
 
     respond_to do |format|
       if @post.save
@@ -55,7 +56,7 @@ class PostsController < ApplicationController
   # PUT /posts/1
   # PUT /posts/1.json
   def update
-    @post = @board.posts.find(params[:id])
+    @post = current_user.posts.find(params[:id])
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
@@ -71,7 +72,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
-    @post = @board.posts.find(params[:id])
+    @post = current_user.posts.find(params[:id])
     @post.destroy
 
     respond_to do |format|
