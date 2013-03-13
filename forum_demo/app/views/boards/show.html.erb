@@ -5,6 +5,7 @@
   <%= @board.name %>
 </p>
 
+<h1>Listing Posts</h1>
 <table>
   <tr>
     <th>Title</th>
@@ -27,6 +28,5 @@
 <br/>
 
 <%= link_to 'New Post', new_board_post_path(@board) %> |
-<%= link_to('New Post', new_board_post_path(@board)) %> |
 <%= link_to 'Edit', edit_board_path(@board) %> |
 <%= link_to 'Back', boards_path %>

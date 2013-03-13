@@ -21,7 +21,6 @@ class PostsController < ApplicationController
   # GET /posts/new
   # GET /posts/new.json
   def new
-    puts "===========xxxx"
     @board = Board.find(params[:board_id])
     @post = @board.posts.build
 
@@ -79,7 +78,7 @@ class PostsController < ApplicationController
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to board_post_path(@board, @post) }
+      format.html { redirect_to board_posts_path(@board) }
       format.json { head :no_content }
     end
   end
