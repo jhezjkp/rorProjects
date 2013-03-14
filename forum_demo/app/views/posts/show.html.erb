@@ -10,12 +10,6 @@
   <%= raw @post.content %>
 </p>
 
-<% if @post.excerpt_image.file? %>
-  <p>
-    <%= image_tag(@post.excerpt_image.url) %>
-  </p>
-<% end %>
-
 <% if current_user && @post.user == current_user %>
   <%= link_to 'Edit', edit_board_post_path(@board, @post) %> |
 <% end %>
