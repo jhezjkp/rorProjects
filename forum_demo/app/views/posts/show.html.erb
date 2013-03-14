@@ -7,7 +7,7 @@
 
 <p>
   <b>Content:</b>
-  <%= @post.content %>
+  <%= raw @post.content %>
 </p>
 
 <% if @post.excerpt_image.file? %>
