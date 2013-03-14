@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
 
+  include Gravtastic
+  gravtastic
+
   has_many :posts
 
   # Include default devise modules. Others available are:
