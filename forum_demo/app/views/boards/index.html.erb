@@ -1,18 +1,7 @@
 <h1>Listing boards</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @boards.each do |board| %>
-  <tr>
-    <td><%= link_to board.name, board %></td>
-    <td><%= link_to 'Edit', edit_board_path(board) %></td>
-    <td><%= link_to 'Destroy', board, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+    <div><%= link_to board.name, board %></div>
+    <br/>
 <% end %>
-</table>
 
