@@ -16,4 +16,4 @@
     <li class="divider"/>
   <% end %>
 </ul>
-<%= will_paginate(@posts) %>
+<%= will_paginate @posts, :previous_label => 'Prev', :next_label => 'Next', :class => 'pagination pull-right' %>
