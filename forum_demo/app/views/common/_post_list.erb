@@ -1,0 +1,19 @@
+<ul class="media-list">
+ <% @posts.each do |post| %>
+    <li class="media">
+      <%= link_to image_tag(post.user.gravatar_url(:rating => 'R', :secure => true, :size => 40)), "#", :class => "pull-left" %>
+      <div class="media-body">
+        <h4 class="media-heading">
+          <%= link_to post.title, board_post_path(post.board, post) %>
+        </h4>
+        <div>
+          <span class="label"><%= link_to post.board.name, board_path(post.board) %></span>
+          <span><%= post.user.email %></span>
+          <span><%= time_ago_in_words post.updated_at %></span>
+        </div>
+      </div>
+    </li>
+    <li class="divider"/>
+  <% end %>
+</ul>
+<%= will_paginate(@posts) %>

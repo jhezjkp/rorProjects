@@ -1,14 +1,25 @@
-<p id="notice"><%= notice %></p>
+<ul class="media-list">
+  <li class="media">
+    <%= link_to image_tag(@post.user.gravatar_url(:size => 90)), '#', :class=> 'pull-right' %>
+    <div class="media-body">
+      <ul class="breadcrumb">
+         <li><%= link_to "Home", root_path %><span class="divider">/</span></li>
+         <li><%= link_to @post.board.name, board_path(@post.board) %></li>
+       </ul>
+      <div class="media-body">
+        <h4 class="media-heading"><%= @post.title %></h4>
+        <div>
+          by <span><%= @post.user.email %></span>
+        </div>
+      </div>
+    </div>
+  </li>
+  <li class="divider"/>
+</ul>
 
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
-
-<p>
-  <b>Content:</b>
+<div>
   <%= raw @post.content %>
-</p>
+</div>
 
 <% if current_user && @post.user == current_user %>
   <%= link_to 'Edit', edit_board_post_path(@board, @post) %> |
