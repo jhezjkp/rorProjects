@@ -2,6 +2,7 @@ class BoardsController < ApplicationController
   # GET /boards
   # GET /boards.json
   def index
+    @boards = Board.paginate(:page => 1, :per_page => 15)
     @posts = Post.recent.paginate(:page => params[:page], :per_page => 10)
     
     respond_to do |format|

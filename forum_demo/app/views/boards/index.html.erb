@@ -1,1 +1,7 @@
+<div>
+  <% @boards.each do |board| %>
+    <%= link_to board.name, board %>
+  <% end %>
+  <span class="label label-inverse"><%= link_to "全部", root_path %></span>
+</div>
 <%= render :partial => 'common/post_list' %>
