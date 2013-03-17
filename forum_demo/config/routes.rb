@@ -2,7 +2,7 @@ ForumDemo::Application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
 
-  devise_for :users
+  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
 
   resources :boards do
     resources :posts
