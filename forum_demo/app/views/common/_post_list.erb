@@ -8,7 +8,7 @@
         </h4>
         <div>
           <span class="label"><%= link_to post.board.name, board_path(post.board) %></span>
-          <span><%= post.user.email %></span>
+          <span><%= post.user.name %></span>
           <span><%= time_ago_in_words post.updated_at %></span>
         </div>
       </div>
