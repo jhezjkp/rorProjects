@@ -9,7 +9,8 @@
       <div class="media-body">
         <h4 class="media-heading"><%= @post.title %></h4>
         <div>
-          by <span><%= @post.user.email %></span>
+          by <span><%= @post.user.name %></span>
+          <span><%= time_ago_in_words @post.created_at %>
         </div>
       </div>
     </div>
