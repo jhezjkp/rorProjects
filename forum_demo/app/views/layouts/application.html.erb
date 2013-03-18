@@ -52,17 +52,20 @@
           </a>
           <%= link_to "ForumDemo", root_path, :class => "brand" %>
           <div class="container-fluid nav-collapse">
+            <!--
             <ul class="nav">
               <li><%= link_to "Link3", "/path3"  %></li>
             </ul>
+            -->
             <ul class="nav pull-right">
               <% if user_signed_in? %>
-                <li><%= link_to image_tag(current_user.gravatar_url(:rating => 'R', :secure => true, :size => 20)) + " " + current_user.email, "#" %></li>
+                <li><%= link_to image_tag(current_user.gravatar_url(:rating => 'R', :secure => true, :size => 20)) + " " + current_user.name, edit_user_registration_path %></li>
                 <% if current_user.is_admin? %>
                   <li><%= link_to('Admin Panel', admin_boards_path) %></li>
                 <% end %>
                 <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
               <% else %>
+                <li><%= link_to "Sign in with GitHub", user_omniauth_authorize_path(:github) %></li>
                 <li><%= link_to "Sign in", new_user_session_path %></li>
                 <li><%= link_to "Sign up", new_user_registration_path %></li>
               <% end %>
