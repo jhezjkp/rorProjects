@@ -10,7 +10,8 @@
         <h4 class="media-heading"><%= @post.title %></h4>
         <div>
           by <span><%= @post.user.name %></span>
-          <span><%= time_ago_in_words @post.created_at %>
+          <span><%= time_ago_in_words @post.created_at %></span>
+          <span><%= @post.view_count %> click(s)</span>
         </div>
       </div>
     </div>

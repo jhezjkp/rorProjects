@@ -13,6 +13,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = @board.posts.find(params[:id])
+    @post.increment!(:view_count)
 
     respond_to do |format|
       format.html # show.html.erb
