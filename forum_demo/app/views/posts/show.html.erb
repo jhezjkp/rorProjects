@@ -23,11 +23,28 @@
   <%= raw @post.content %>
 </div>
 
+<hr/>
+
+<% if @post.replies %>
+<ul class="media-list">
+  <% @post.replies.each do |reply| %>
+    <div class="media">
+        <%= link_to image_tag(reply.user.gravatar_url(:size => 40)), '#', :class=> 'pull-left' %>
+      <div class="media-body">
+        <span><%= reply.user.name %> <%= time_ago_in_words reply.created_at %><span>
+        <div>
+            <%= raw reply.content %>
+        </div>
+      </div>
+  </div>
+  <div class="divider"/>
+  <% end %>
+</ul>
+<% end %>
+
 <% if current_user && @post.user == current_user %>
   <%= link_to 'Edit', edit_board_post_path(@board, @post) %> |
 <% end %>
 <% if current_user && current_user.is_admin? %>
   <%= link_to 'A-Edit', edit_admin_board_post_path(@board, @post) %> |
 <% end %>
-
-<%= link_to 'Back', board_posts_path(@board) %>
