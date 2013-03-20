@@ -42,6 +42,12 @@
 </ul>
 <% end %>
 
+<div>
+  <%= simple_form_for @post.replies.build, :url => board_post_path(@post) do |f| %>
+    <%= f.cktext_area :content, label: false %>
+  <% end %>
+</div>
+
 <% if current_user && @post.user == current_user %>
   <%= link_to 'Edit', edit_board_post_path(@board, @post) %> |
 <% end %>
