@@ -15,6 +15,8 @@ ForumDemo::Application.routes.draw do
     end
   end
 
+  match 'replies' => 'replies#reply_to_post'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

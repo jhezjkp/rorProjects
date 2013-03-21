@@ -43,8 +43,10 @@
 <% end %>
 
 <div>
-  <%= simple_form_for @post.replies.build, :url => board_post_path(@post) do |f| %>
+  <%= simple_form_for @post.replies.build, :url => '/replies' do |f| %>
+    <%= f.hidden_field :post_id, input_html: {value: @post.id} %>
     <%= f.cktext_area :content, label: false %>
+    <%= f.submit %>
   <% end %>
 </div>
 
