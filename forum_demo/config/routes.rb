@@ -1,5 +1,9 @@
 ForumDemo::Application.routes.draw do
 
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   mount Ckeditor::Engine => '/ckeditor'
 
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout", sign_up: "register"}, 
@@ -7,12 +11,6 @@ ForumDemo::Application.routes.draw do
 
   resources :boards do
     resources :posts
-  end
-
-  namespace :admin do
-    resources :boards do
-      resources :posts
-    end
   end
 
   match 'replies' => 'replies#reply_to_post'
