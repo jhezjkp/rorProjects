@@ -141,6 +141,9 @@ ActiveAdmin.setup do |config|
   # To load a javascript file:
   #   config.register_javascript 'my_javascript.js'
 
+  #ckeditor
+  config.register_javascript 'ckeditor/init.js'
+
 
   # == CSV options
   #
